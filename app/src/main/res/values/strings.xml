@@ -6,6 +6,11 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="HelpActivityTitle">Help</string>
+    <string name="how_to_play">How To Play</string>
+    <string name="how_to_win">How To Win</string>
+    <string name="card_values_and_scoring">Card Values/Scoring</string>
+    <string name="Betting">Betting</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
