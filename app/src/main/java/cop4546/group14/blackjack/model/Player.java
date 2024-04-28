@@ -14,10 +14,12 @@ public class Player {
     @ColumnInfo(name = "player_name")
     @NonNull
     private String mPlayerName;
-    @ColumnInfo(name = "player_chips")
-    private int mChips;
     @Ignore
-    private int bet;
+    private int mBets;
+    @ColumnInfo(name = "player_winnings")
+    private int mWinnings;
+    @Ignore
+    private int mChips;
     @Ignore
     private Hand hand;
 
@@ -33,43 +35,46 @@ public class Player {
         return mPlayerName;
     }
 
+    public int getWinnings() { return mWinnings;}
+
     public void setPlayerName(@NonNull String playerName) {
         mPlayerName = playerName;
     }
 
-    public Player(@NonNull String playerName, int chips) {
+    public Player(@NonNull String playerName, int winnings) {
         mPlayerName = playerName;
-        mChips = chips;
+        mWinnings = winnings;
     }
 
     public int getChips() { return mChips; }
 
-    public int getBet() { return bet; }
+    public int getBet() { return mBets; }
 
-    public void setBet(int bet) { this.bet = bet; }
+    public void setBet(int bet) { mBets= bet; }
 
     public void win() {
-        mChips += bet;
-        bet = 0;
+        mChips += mBets;
+        mWinnings = mBets;
+        mBets = 0;
     }
 
     public void blackjack() {
-        bet *= 1.5;
+        mBets *= 1.5;
         win();
     }
 
     public void loss() {
-        mChips -= bet;
-        bet = 0;
+        mChips -= mBets;
+        mBets = 0;
     }
 
     public void bust() {
-        mChips -= bet;
-        bet = 0;
+        mChips -= mBets;
+        mBets = 0;
     }
 
     public void push() {
-        bet = 0;
+        mBets = 0;
     }
 
     public void removeFromGame() { mChips = -1; } // TODO: see if this is needed

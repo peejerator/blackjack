@@ -9,6 +9,7 @@ public interface PlayerDAO {
     @Insert (onConflict = OnConflictStrategy.REPLACE)
     long addPlayer(Player player);
 
-
+    @Query("SELECT * FROM players ORDER BY player_winnings DESC LIMIT 10")
+    List<Player> getTop10Bets();
 
 }
