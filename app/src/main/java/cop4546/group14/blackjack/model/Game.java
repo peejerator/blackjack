@@ -1,7 +1,8 @@
 package cop4546.group14.blackjack.model;
 
+
 public class Game {
-    private Player player = new Player(100); // default 100 chips
+    private Player player = new Player("blabla",100);// default 100 chips
     private Deck deck = new Deck();
     private Dealer dealer = new Dealer();
 
