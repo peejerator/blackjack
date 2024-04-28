@@ -5,6 +5,8 @@ public class Player {
     private int bet;
     private Hand hand;
 
+    private String name;
+
     private Player() {}
 
     public Player(int chips) {
@@ -17,6 +19,8 @@ public class Player {
     public int getBet() { return bet; }
 
     public void setBet(int bet) { this.bet = bet; }
+
+    public String getName()
 
     public void win() {
         chips += bet;
