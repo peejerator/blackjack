@@ -3,6 +3,7 @@ package cop4546.group14.blackjack.repo;
 import android.content.Context;
 
 import androidx.room.Room;
+import java.util.List;
 
 import cop4546.group14.blackjack.model.Player;
 
@@ -14,7 +15,7 @@ public class PlayerRepo {
     private PlayerRepo(Context context) {
         // Build the database instance
         PlayerDatabase database = Room.databaseBuilder(context.getApplicationContext(),
-                        PlayerDatabase.class, "players.db")
+                        PlayerDatabase.class, "players2.db")
                 .allowMainThreadQueries() // Allow queries on the main thread (for simplicity)
                 .fallbackToDestructiveMigration()
                 .build();
@@ -38,10 +39,7 @@ public class PlayerRepo {
     }
 
 
-    /* Method to get all players from the database
     public List<Player> getTop10Bets() {
         return mPlayerDAO.getTop10Bets();
-    } */
-
-    // Add other methods for interacting with the database as needed
+    }
 }
