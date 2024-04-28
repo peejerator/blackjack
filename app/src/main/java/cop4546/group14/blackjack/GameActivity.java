@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import cop4546.group14.blackjack.PlayerRepo;
-
-import cop4546.group14.blackjack.PlayerDatabase;
+import cop4546.group14.blackjack.repo.PlayerRepo;
 
 import cop4546.group14.blackjack.model.Game;
 import cop4546.group14.blackjack.model.Player;

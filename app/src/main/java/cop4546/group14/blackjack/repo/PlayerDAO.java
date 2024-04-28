@@ -1,4 +1,4 @@
-package cop4546.group14.blackjack;
+package cop4546.group14.blackjack.repo;
 import cop4546.group14.blackjack.model.Player;
 
 import java.util.List;
