@@ -48,10 +48,4 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="game_title">Black Jack</string>
-    <string name="black">Black</string>
-    <string name="jack">Jack</string>
-    <string name="play_button_text">Play</string>
-    <string name="scoreboard_button_text">Scoreboard</string>
-    <string name="help_button_text">Help</string>
 </resources>
