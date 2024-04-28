@@ -1,5 +1,8 @@
 package cop4546.group14.blackjack.model;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Player {
     private int chips;
     private int bet;
@@ -10,6 +13,7 @@ public class Player {
     private Player() {}
 
     public Player(int chips) {
+        this.name = "";
         this.chips = chips;
         hand = new Hand();
     }
@@ -20,7 +24,17 @@ public class Player {
 
     public void setBet(int bet) { this.bet = bet; }
 
-    public String getName()
+    public String getName() { return name; }
+
+    public boolean setName(String name) {
+        Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(name);
+
+        if (m.find()) return false;
+
+        this.name = name;
+        return true;
+    }
 
     public void win() {
         chips += bet;
