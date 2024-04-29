@@ -5,62 +5,84 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "players")
+@Entity
 public class Player {
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
     private long mPlayerId;
 
-    @ColumnInfo(name = "player_name")
     @NonNull
+    @ColumnInfo(name = "player_name")
     private String mPlayerName;
     @Ignore
     private int mBets;
-    @ColumnInfo(name = "player_winnings")
-    private int mWinnings;
-    @Ignore
+
+//    @ColumnInfo(name = "player_winnings")
+//    private int mWinnings;
+    @ColumnInfo(name = "player_chips")
     private int mChips;
+
     @Ignore
     private Hand hand;
 
-    public void setPlayerId(long playerId) {
-        mPlayerId = playerId;
-    }
-
     public long getPlayerId() {
         return mPlayerId;
+    }
+
+    public void setPlayerId(long playerId) {
+        mPlayerId = playerId;
     }
 
     public String getPlayerName(){
         return mPlayerName;
     }
 
-    public int getWinnings() { return mWinnings;}
-
-    public void setPlayerName(@NonNull String playerName) {
+    public void setPlayerName(@NonNull String playerName){
         mPlayerName = playerName;
     }
 
-    public Player(@NonNull String playerName, int winnings) {
+//    public int getWinnings() { return mWinnings;}
+//
+//    public void setWinnings(int winnings) {
+//        mWinnings = winnings;
+//    }
+
+    public Player() {
+        // empty default constructor
+    }
+
+    public Player(@NonNull String playerName, int chips) {
         mPlayerName = playerName;
-        mWinnings = winnings;
+        //mWinnings = 0;
+
+        mBets = 0;
+
+        mChips = chips;
+        hand = new Hand();
     }
 
     public int getChips() { return mChips; }
 
+    public void setChips(int chips) {
+        mChips = chips;
+    }
+
     public int getBet() { return mBets; }
 
-    public void setBet(int bet) { mBets= bet; }
+    public void setBet(int bet) {
+        mBets = bet;
+    }
 
     public void win() {
         mChips += mBets;
-        mWinnings = mBets;
+        //mWinnings = mBets;
         mBets = 0;
     }
 
     public void blackjack() {
-        mBets *= 1.5;
-        win();
+        mChips += mBets * 1.5;
+        //mWinnings = mBets;
+        mBets = 0;
     }
 
     public void loss() {
@@ -77,14 +99,19 @@ public class Player {
         mBets = 0;
     }
 
-    public void removeFromGame() { mChips = -1; } // TODO: see if this is needed
-
-    public void resetChips() { mChips = 0; }
-
     public int getTotal() { return hand.getTotal(); }
+
+    public int getHandSize() { return hand.size(); }
 
     public void addCard(Card card) { hand.addCard(card); }
 
     public void clearHand() { hand.clear(); }
 
+    public void resetBet() {
+        mBets = 0;
+    }
+
+    public String[] getHand() {
+        return hand.toStringArray();
+    }
 }

@@ -1,10 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pokertable"
-    tools:context=".HelpActivity">
-    
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HelpActivity"
+    android:background="@drawable/pokertable">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to Play:"
+            android:textAlignment="center"
+            android:fontFamily="@font/redressed"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/how_to_win"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to Win:\nThe goal of the game is to get as close to 21 as possible without going over. If you go over 21, you lose."
+            android:fontFamily="@font/redressed"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintTop_toBottomOf="@id/title1"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/card_values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Card Values/Scoring:\nNumber cards are worth their face value. Face cards are worth 10. Aces are worth 1 or 11."
+            android:fontFamily="@font/redressed"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintTop_toBottomOf="@id/how_to_win"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="25dp" />
+
+        <TextView
+            android:id="@+id/gameplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gameplay:\nYou will be dealt two cards. You can choose to hit (get another card), stand (keep your current hand), or double (double your current bet - only when you have two cards in hand)."
+            android:fontFamily="@font/redressed"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintTop_toBottomOf="@id/card_values"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="25dp" />
+
+        <TextView
+            android:id="@+id/betting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Betting:\nYou can use your current chips to bet. If you win, you will receive double your bet. If you lose, you will lose your bet. If you tie, you will get your bet back. If you get a blackjack (21 with two cards), you will receive 2.5 times your bet."
+            android:fontFamily="@font/redressed"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintTop_toBottomOf="@id/gameplay"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="25dp" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -40,4 +40,21 @@ public class Hand {
 
         return total;
     }
+
+    public int size() {
+        return hand.size();
+    }
+
+    public String[] toStringArray() {
+        String[] str = new String[hand.size()];
+        for (int i = 0; i < hand.size(); ++i) {
+            str[i] = hand.get(i).toString();
+        }
+
+        return str;
+    }
+
+    public int getShowingValue() {
+        return hand.get(1).getValue();
+    }
 }

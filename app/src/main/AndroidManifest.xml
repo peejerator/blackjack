@@ -13,16 +13,25 @@
         android:theme="@style/Theme.BlackJack"
         tools:targetApi="31">
         <activity
-            android:name=".HelpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MenuActivity"
+            android:name=".ScoreboardActivity"
             android:exported="false"
-            android:label="@string/title_activity_game"
-            android:theme="@style/Theme.BlackJack" />
+            android:label="@string/title_activity_scoreboard"
+            android:parentActivityName=".MenuActivity"
+            />
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false"
+            android:label="@string/title_activity_help"
+            android:parentActivityName=".MenuActivity" />
         <activity
             android:name=".GameActivity"
-            android:exported="true">
+            android:exported="false"
+            android:label="@string/title_activity_game"
+            android:parentActivityName=".MenuActivity"/>
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BlackJack.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

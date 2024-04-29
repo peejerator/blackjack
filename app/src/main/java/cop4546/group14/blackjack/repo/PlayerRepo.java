@@ -2,8 +2,11 @@ package cop4546.group14.blackjack.repo;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import cop4546.group14.blackjack.model.Player;
 
@@ -11,13 +14,14 @@ public class PlayerRepo {
     private static PlayerRepo mPlayerRepo;
     private final PlayerDAO mPlayerDAO;
 
+    private static final ExecutorService mExecutor = Executors.newFixedThreadPool(4);
+
     // Private constructor to initialize the repository
     private PlayerRepo(Context context) {
         // Build the database instance
-        PlayerDatabase database = Room.databaseBuilder(context.getApplicationContext(),
-                        PlayerDatabase.class, "players2.db")
-                .allowMainThreadQueries() // Allow queries on the main thread (for simplicity)
-                .fallbackToDestructiveMigration()
+        PlayerDatabase database = Room.databaseBuilder(context,
+                        PlayerDatabase.class, "players.db")
+//                .allowMainThreadQueries() // Allow queries on the main thread (for simplicity)
                 .build();
 
         // Obtain the PlayerDAO instance
@@ -34,12 +38,11 @@ public class PlayerRepo {
 
     // AddPlayer method to insert a new player into the database
     public void addPlayer(Player player) {
-        long playerID = mPlayerDAO.addPlayer(player);
-        player.setPlayerId(playerID);
+        mExecutor.execute(() -> mPlayerDAO.addPlayer(player));
     }
 
 
-    public List<Player> getTop10Bets() {
+    public LiveData<List<Player>> getTop10Bets() {
         return mPlayerDAO.getTop10Bets();
     }
 }

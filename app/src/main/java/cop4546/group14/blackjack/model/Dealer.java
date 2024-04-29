@@ -24,11 +24,19 @@ public class Dealer {
         return hand.getTotal();
     }
 
+    public int getShowingValue() {
+        return hand.getShowingValue();
+    }
+
     public void clearHand() {
         hand.clear();
     }
 
     public boolean peek() {
         return hand.peek();
+    }
+
+    public String[] getHand() {
+        return hand.toStringArray();
     }
 }
