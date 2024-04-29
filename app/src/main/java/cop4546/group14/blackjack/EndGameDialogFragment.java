@@ -23,18 +23,9 @@ import java.util.Locale;
 
 public class EndGameDialogFragment extends DialogFragment {
 
-//    public interface onOkButtonClickedListener {
-//        void onOkButtonClicked();
-//    }
-//
-//    private onOkButtonClickedListener mListener;
-
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-//        final EditText subjectEditText = new EditText(requireActivity());
-//        subjectEditText.setInputType(InputType.TYPE_CLASS_TEXT);
-//        subjectEditText.setMaxLines(1);
 
         final TextView statusTextView = new TextView(requireActivity());
 
@@ -48,26 +39,12 @@ public class EndGameDialogFragment extends DialogFragment {
             statusTextView.setText("unknown");
         }
 
-
         return new AlertDialog.Builder(requireActivity(), R.style.Theme_BlackJack_Dialog)
-                //.setCustomTitle(titleTextView)
                 .setTitle(R.string.hand_over)
                 .setCancelable(false)
                 .setView(statusTextView)
                 .setPositiveButton(R.string.ok, null)
                 .create();
 
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        //mListener = (onOkButtonClickedListener) context;
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        //mListener = null;
     }
 }

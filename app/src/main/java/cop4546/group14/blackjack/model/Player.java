@@ -17,8 +17,6 @@ public class Player {
     @Ignore
     private int mBets;
 
-//    @ColumnInfo(name = "player_winnings")
-//    private int mWinnings;
     @ColumnInfo(name = "player_chips")
     private int mChips;
 
@@ -41,19 +39,12 @@ public class Player {
         mPlayerName = playerName;
     }
 
-//    public int getWinnings() { return mWinnings;}
-//
-//    public void setWinnings(int winnings) {
-//        mWinnings = winnings;
-//    }
-
     public Player() {
         // empty default constructor
     }
 
     public Player(@NonNull String playerName, int chips) {
         mPlayerName = playerName;
-        //mWinnings = 0;
 
         mBets = 0;
 
@@ -75,13 +66,11 @@ public class Player {
 
     public void win() {
         mChips += mBets;
-        //mWinnings = mBets;
         mBets = 0;
     }
 
     public void blackjack() {
         mChips += mBets * 1.5;
-        //mWinnings = mBets;
         mBets = 0;
     }
 

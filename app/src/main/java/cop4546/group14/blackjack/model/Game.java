@@ -2,11 +2,9 @@ package cop4546.group14.blackjack.model;
 
 
 public class Game {
-    private Player player = new Player("blabla",1000);// default 1000 chips
-    private Deck deck = new Deck();
-    private Dealer dealer = new Dealer();
-
-//    public boolean isPlayerTurn = true;
+    private final Player player = new Player("blabla",1000);// default 1000 chips
+    private final Deck deck = new Deck();
+    private final Dealer dealer = new Dealer();
 
     public enum State {
         PLAYER_TURN,

@@ -21,7 +21,7 @@ public class PlayerRepo {
         // Build the database instance
         PlayerDatabase database = Room.databaseBuilder(context,
                         PlayerDatabase.class, "players.db")
-//                .allowMainThreadQueries() // Allow queries on the main thread (for simplicity)
+//                .allowMainThreadQueries() // Don't allow main thread queries anymore
                 .build();
 
         // Obtain the PlayerDAO instance

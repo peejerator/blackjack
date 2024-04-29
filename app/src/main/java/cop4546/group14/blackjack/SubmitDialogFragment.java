@@ -26,15 +26,15 @@ public class SubmitDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final EditText nameEditText = new EditText(requireActivity());
-        nameEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        nameEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME | InputType.TYPE_CLASS_TEXT);
         nameEditText.setMaxLines(1);
 
         return new AlertDialog.Builder(requireActivity(), R.style.Theme_BlackJack_Dialog)
                 .setTitle(R.string.enter_name)
                 .setView(nameEditText)
                 .setPositiveButton(R.string.ok, (dialog, whichButton) -> {
-                    String name = nameEditText.getText().toString();
-                    mListener.onNameEntered(name.trim());
+                    String name = nameEditText.getText().toString().trim();
+                    mListener.onNameEntered(name);
                 })
                 .setNegativeButton(R.string.cancel, null)
                 .create();

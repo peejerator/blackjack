@@ -12,8 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,7 +39,6 @@ public class GameActivity extends AppCompatActivity
     private Button mResetButton;
 
     private LinearLayout mEndGameButtons;
-//    private Button mPlayAgainButton;
 
     private LinearLayout mGameButtons;
 
@@ -137,10 +134,6 @@ public class GameActivity extends AppCompatActivity
             thread.start();
         });
 
-//        mPlayAgainButton.setOnClickListener(v -> {
-//            resetGame();
-//        });
-
         // play again button
         mEndGameButtons.getChildAt(0).setOnClickListener(v -> {
             resetGame();
@@ -148,10 +141,6 @@ public class GameActivity extends AppCompatActivity
 
         // submit score button
         mEndGameButtons.getChildAt(1).setOnClickListener(v -> {
-//            Player player = playerRepo.getPlayer();
-//            player.setChips(game.getChips());
-//            playerRepo.updatePlayer(player);
-//            finish();
             SubmitDialogFragment submitDialogFragment = new SubmitDialogFragment();
             submitDialogFragment.show(getSupportFragmentManager(), "submit_dialog");
         });
