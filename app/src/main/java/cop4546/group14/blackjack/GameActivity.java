@@ -207,7 +207,7 @@ public class GameActivity extends AppCompatActivity
                 mPlayerTotal.setVisibility(View.VISIBLE);
                 mPlayerTotal.setText(getString(R.string.player_total, game.getPlayerTotal()));
                 game.checkBlackjack();
-                if (game.getState() == Game.State.BLACKJACK) {
+                if (game.getState() != Game.State.PLAYER_TURN) {
                     showDealerCards();
                     mDealerTotal.setVisibility(View.VISIBLE);
                     mDealerTotal.setText(getString(R.string.dealer_total, game.getDealerTotal()));
