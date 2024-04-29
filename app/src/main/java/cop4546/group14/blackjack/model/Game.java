@@ -56,6 +56,7 @@ public class Game {
             player.addCard(deck.getNextCard());
             dealer.addCard(deck.getNextCard());
         }
+        state = State.PLAYER_TURN;
     }
 
     public void checkBlackjack() {

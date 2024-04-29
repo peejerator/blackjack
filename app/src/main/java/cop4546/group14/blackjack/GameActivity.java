@@ -212,9 +212,10 @@ public class GameActivity extends AppCompatActivity
                     mDealerTotal.setVisibility(View.VISIBLE);
                     mDealerTotal.setText(getString(R.string.dealer_total, game.getDealerTotal()));
                     endGame();
+                } else {
+                    mGameButtons.setVisibility(View.VISIBLE);
                 }
                 mPlayButton.setVisibility(View.INVISIBLE);
-                mGameButtons.setVisibility(View.VISIBLE);
                 hideChipButtons();
                 showPlayerCards();
             }
