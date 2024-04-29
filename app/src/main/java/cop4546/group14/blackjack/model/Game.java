@@ -66,8 +66,8 @@ public class Game {
                 state = State.PUSH;
             }
             else {
-                player.bust();
-                state = State.BUST;
+                player.loss();
+                state = State.LOSS;
             }
         } else if (player.getTotal() == 21) {
             player.blackjack();
